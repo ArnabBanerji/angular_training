@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02 Position Change</title>
+
+    <style>
+        .wrapper {
+            position: relative;
+            height: 500px;
+            width: 500px;
+            background-color: rgba(100, 0, 0, 0.5);
+        }
+
+        .box {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: rgba(0, 0, 100, 0.5);
+        }
+    </style>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="02.js"></script>
+</head>
+<body ng-app="positionChange">
+
+<div ng-controller="pcCtrl">
+    <svg class=wrapper>
+        <circle ng-attr-cx="{{boxStyle.left}}" ng-attr-cy="{{boxStyle.top}}" r="40" stroke="black" stroke-width="3" fill="red"/>
+    </svg>
+    <div>
+        <button ng-repeat="move in moves" ng-click="moveBox($index)">{{move}}</button>
+    </div>
+</div>
+
+
+</body>
+</html>
