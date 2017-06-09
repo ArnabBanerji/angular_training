@@ -6,9 +6,9 @@ app.controller('pcCtrl', ['$scope', function ($scope) {
     var dMove = 50;
 
     $scope.moves = [
-        'R',
-        'L',
         'U',
+        'L',
+        'R',
         'D'
     ];
 
@@ -22,17 +22,19 @@ app.controller('pcCtrl', ['$scope', function ($scope) {
         var top = parseInt($scope.boxStyle.top);
         var left = parseInt($scope.boxStyle.left);
 
-        switch (moveIndex) {
-            case 0:
+        var move = $scope.moves[moveIndex];
+
+        switch (move) {
+            case 'R':
                 left += dMove;
                 break;
-            case 1:
+            case 'L':
                 left -= dMove;
                 break;
-            case 2:
+            case 'U':
                 top -= dMove;
                 break;
-            case 3:
+            case 'D':
                 top += dMove;
                 break;
         }
