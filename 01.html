@@ -9,7 +9,15 @@
 </head>
 <body>
 <div ng-app="qaApp">
+    <div>
+        <div>Show ng-bind and ng-model {{modelText}}</div>
+        <div><input type="text" ng-model="modelText"></div>
+        <div><span ng-bind="modelText"></span></div>
+    </div>
+
+
     <div ng-controller="qaController" class="container">
+
         <div class="row">
             <div class="col-sm-3">
                 <label for="qIndex" ng-bind="'Current Q#' + (currentQuestionIndex+1)"></label>
@@ -18,15 +26,19 @@
         </div>
         <div class="row">
             <div class="panel panel-body well qa-wrapper col-sm-3" ng-repeat="qa in qaData"
-                 ng-show="(currentQuestionIndex===$index)">
+                 ng-show="(currentQuestionIndex === $index)">
                 <div>Q. <span>{{qa.question}}</span></div>
                 <div>
                     <div class="option" ng-repeat="option in qa.options">
-                        <button ng-class="{'bg-success': showAnswerClicked &&isCorrect ($index, $parent.$index), 'bg-warning': showAnswerClicked && !isCorrect($index, $parent.$index)}">
+                        <button ng-class="{'bg-success': (showAnswerClicked && isCorrect ($index, $parent.$index)), 'bg-warning': showAnswerClicked && !isCorrect($index, $parent.$index)}">
+                            Parent {{$parent.$index}}, $index: {{$index}}
                             {{getTextOfOption($parent.$index, $index)}}
                         </button>
                     </div>
                 </div>
+            </div>
+            <div>
+                <button ng-click="showAnswerClicked=true">showAnswerClicked</button>
             </div>
         </div>
         <div>
@@ -35,4 +47,5 @@
     </div>
 
 </div>
+</body>
 </html>

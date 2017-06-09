@@ -2,7 +2,6 @@ var app = angular.module('qaApp', []);
 
 app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $scope) {
     $scope.testValue = 'Test Success!';
-
     $rootScope.testParent = 'Testing Parent Root';
     $scope.testParent = 'Testing Parent Ctrl';
 
@@ -11,6 +10,8 @@ app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $s
     $scope.currentQuestionIndex = 0;
 
     $scope.showIndex = false;
+
+    $scope.imgSrc = 'a.png';
 
     var data = [
         {
@@ -43,6 +44,8 @@ app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $s
         return (optionIndex === questionIndex);
     };
 
+
+
     $scope.showOptionIndex = function () {
         $scope.showIndex = !$scope.showIndex;
     };
@@ -53,4 +56,3 @@ app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $s
     }
 
 }]);
-

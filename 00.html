@@ -16,11 +16,9 @@
     <div class="row">
         <div ng-controller="app1controller">
             <div>Test Value 1 :: {{testValue}}</div>
-            <div>Test Value 2 :: {{testValue2}}</div>
             <div ng-controller="app2controller">
-                <div>Parent Test Value 1 :: {{$parent.testValue}}</div>
-                <div>Test Value 1 :: {{testValue}}</div>
-                <div>Test Value 2 :: {{testValue2}}</div>
+                <div>Ctrl 2 Test Value 1 :: {{$parent.testValue}}</div>
+                <div>Ctrl 2 Test Value 2 :: {{testValue}}</div>
             </div>
         </div>
     </div>

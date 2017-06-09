@@ -11,6 +11,7 @@
             height: 500px;
             width: 500px;
             background-color: rgba(75, 135, 180, 0.5);
+            float: left;
         }
 
         .box {
@@ -31,12 +32,21 @@
             font-weight: 700;
         }
 
+        div.box {
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+
     </style>
     <script src="bower_components/angular/angular.js"></script>
     <script src="02.js"></script>
 </head>
 <body ng-app="positionChange">
 <div ng-controller="pcCtrl">
+    <div class="wrapper">
+        <div class="box" ng-style="boxStyle"></div>
+    </div>
     <svg class=wrapper>
         <circle class="box" ng-attr-cx="{{boxStyle.left}}" ng-attr-cy="{{boxStyle.top}}" r="40px"
                 stroke-width="2"></circle>

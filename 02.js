@@ -44,9 +44,10 @@ app.controller('pcCtrl', ['$scope', function ($scope) {
 
     };
 
-    // setTimeout(function () {
-    //     $scope.boxStyle.top = '200px';
-    //     $scope.$apply();
-    // }, 2000);
+    setTimeout(function () {
+        console.log('Timeout');
+        $scope.boxStyle.top = '200px';
+        $scope.$apply();
+    }, 2000);
 
 }]);
