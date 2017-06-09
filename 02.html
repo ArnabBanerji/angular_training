@@ -19,6 +19,18 @@
             stroke: #3a37db;
         }
 
+        .btn-wrapper {
+            text-align: center;
+        }
+
+        .btn-wrapper button {
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
     </style>
     <script src="bower_components/angular/angular.js"></script>
     <script src="02.js"></script>
@@ -26,9 +38,10 @@
 <body ng-app="positionChange">
 <div ng-controller="pcCtrl">
     <svg class=wrapper>
-        <circle class="box" ng-attr-cx="{{boxStyle.left}}" ng-attr-cy="{{boxStyle.top}}" r="40px" stroke-width="2"></circle>
+        <circle class="box" ng-attr-cx="{{boxStyle.left}}" ng-attr-cy="{{boxStyle.top}}" r="40px"
+                stroke-width="2"></circle>
     </svg>
-    <div>
+    <div class="btn-wrapper">
         <button ng-repeat="move in moves" ng-click="moveBox($index)">{{move}}</button>
     </div>
 </div>
