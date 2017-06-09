@@ -10,10 +10,16 @@
 <body>
 <div ng-app="qaApp">
     <div ng-controller="qaController" class="container">
-        <input type="range" min="0" max="3" ng-model="currentQuestionIndex">
         <div class="row">
-            <div class="qa-wrapper col-sm-3" ng-repeat="qa in qaData" ng-show="(currentQuestionIndex===$index)">
-                <div>Q. <span>{{qa.question}}</span><span>{{$parent.testParent}}</span></div>
+            <div class="col-sm-3">
+                <label for="qIndex" ng-bind="'Current Q#' + (currentQuestionIndex+1)"></label>
+                <input id="qIndex" type="range" min="0" max="3" ng-model="currentQuestionIndex">
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-body well qa-wrapper col-sm-3" ng-repeat="qa in qaData"
+                 ng-show="(currentQuestionIndex===$index)">
+                <div>Q. <span>{{qa.question}}</span></div>
                 <div>
                     <div class="option" ng-repeat="option in qa.options">
                         <button ng-class="{'bg-success': showAnswerClicked &&isCorrect ($index, $parent.$index), 'bg-warning': showAnswerClicked && !isCorrect($index, $parent.$index)}">
@@ -24,7 +30,7 @@
             </div>
         </div>
         <div>
-            <button ng-click="showOptionIndex()">Show No. {{showIndex}}</button>
+            <button ng-click="showOptionIndex()">Show Index: {{showIndex}}</button>
         </div>
     </div>
 

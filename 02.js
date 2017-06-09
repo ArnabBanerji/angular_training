@@ -13,8 +13,8 @@ app.controller('pcCtrl', ['$scope', function ($scope) {
     ];
 
     $scope.boxStyle = {
-        top: '225px',
-        left: '225px'
+        top: '250px',
+        left: '250px'
     };
 
     $scope.moveBox = function (moveIndex) {
@@ -42,9 +42,9 @@ app.controller('pcCtrl', ['$scope', function ($scope) {
 
     };
 
-    setTimeout(function () {
-        $scope.boxStyle.top = '300px';
-        $scope.$apply();
-    }, 2000);
+    // setTimeout(function () {
+    //     $scope.boxStyle.top = '200px';
+    //     $scope.$apply();
+    // }, 2000);
 
 }]);

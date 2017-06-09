@@ -10,7 +10,7 @@ app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $s
     $scope.optionClass = 'btn-lg';
     $scope.currentQuestionIndex = 0;
 
-    $scope.showIndex = true;
+    $scope.showIndex = false;
 
     var data = [
         {
@@ -48,8 +48,8 @@ app.controller('qaController', ['$rootScope', '$scope', function ($rootScope, $s
     };
 
     $scope.getTextOfOption = function (pIdx, idx) {
-        return ($scope.showIndex) ? (idx + 1) + '. ' + data[pIdx].options[idx] : data[pIdx].options[idx];
-
+        var optionText = data[pIdx].options[idx];
+        return ($scope.showIndex) ? (idx + 1) + '. ' + optionText : optionText;
     }
 
 }]);
